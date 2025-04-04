@@ -276,69 +276,6 @@
   }
 </script>
 
-<style>
-/* 调整表格宽度相关的样式 */
-.leaderboard-container {
-  width: 160%;  /* 从150%增加到160% */
-  max-width: 160%;  /* 从150%增加到160% */
-  overflow-x: auto;
-}
-
-.leaderboard-table {
-  width: 160%;  /* 从150%增加到160% */
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-/* 调整响应式设计中的宽度 */
-@media (max-width: 1400px) {
-  .js-sort-table {
-    width: 130% !important;  /* 从120%增加到130% */
-    transform: scale(0.9);
-    transform-origin: center top;
-  }
-}
-
-@media (max-width: 1200px) {
-  .js-sort-table {
-    width: 130% !important;  /* 从120%增加到130% */
-    transform: scale(0.85);
-    transform-origin: center top;
-  }
-}
-
-@media (max-width: 992px) {
-  .js-sort-table {
-    width: 130% !important;  /* 从120%增加到130% */
-    transform: scale(0.8);
-    transform-origin: center top;
-  }
-}
-
-/* 修改容器最大宽度，以适应更宽的表格 */
-.container {
-  max-width: 1700px;  /* 从1600px增加到1700px */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* 修改主表格样式 */
-#results {
-  width: 100% !important;  /* 确保表格与caption宽度一致 */
-  margin: 0 auto;
-}
-
-/* 调整表格单元格间距，保持美观 */
-.leaderboard-table th, .leaderboard-table td {
-  padding: 8px 10px;  /* 稍微增加水平内边距 */
-  text-align: center;
-  border: 1px solid #ddd;
-}
-</style>
-
 
 <div class="columns is-centered" style="display: flex; justify-content: center; width: 100%;">
   <div class="container" style="display: flex; flex-direction: column; align-items: center;">
@@ -350,7 +287,7 @@
         <div style="width: 80%; margin: 0 auto;">
           <!-- Table section - reduced margins and padding -->
           <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
-            <table class="js-sort-table" id="results" style="width: 50%; transform: scale(0.95); transform-origin: center top; margin-bottom: 8px;">
+            <table class="js-sort-table" id="results" style="width: 90%; transform: scale(0.95); transform-origin: center top; margin-bottom: 8px;">
               <thead>
                 <tr>
                   <th rowspan="3" class="no-sort" style="vertical-align: middle; width: 30px; padding: 4px;" data-js-sort-colNum="none"><strong>#</strong></th>
@@ -441,7 +378,7 @@
                     <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Beihang University</p>
                   </a></b></td>
                   <td style="vertical-align: middle; padding: 3px;">MIO-7B</td>
-                  <td style="vertical-align: middle; color: #6fbf73; padding: 3px;"><b>2024-09-26</b></td>
+                  <td style="vertical-align: middle; padding: 3px;"><b>2024-09-26</b></td>
                   <td style="vertical-align: middle; padding: 3px;"><strong>37.2</strong></td>  
                   <td style="vertical-align: middle; padding: 3px;">52.0</td>
                   <td style="vertical-align: middle; padding: 3px;">33.5</td>
@@ -793,7 +730,7 @@
   /* 只调整表格整体大小，保持内部比例 */
   @media (max-width: 1400px) {
     .js-sort-table {
-      width: 120% !important;
+      width: 100% !important;
       transform: scale(0.9);
       transform-origin: center top;
     }
@@ -801,7 +738,7 @@
   
   @media (max-width: 1200px) {
     .js-sort-table {
-      width: 120% !important;
+      width: 100% !important;
       transform: scale(0.85);
       transform-origin: center top;
     }
@@ -809,14 +746,14 @@
   
   @media (max-width: 992px) {
     .js-sort-table {
-      width: 120% !important;
+      width: 100% !important;
       transform: scale(0.8);
       transform-origin: center top;
     }
   }
   
   .container {
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -834,6 +771,7 @@
     margin: 0 auto;
   }
 </style>
+
 
 
 

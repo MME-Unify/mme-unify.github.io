@@ -694,8 +694,8 @@
             </table>
           </div>
           <!-- Caption section with minimal spacing -->
-          <div class="table-caption" style="width: 100%; text-align: left; padding-top: 0; border-top: none;">
-            <p style="font-weight: 500; margin: 5px 0 10px 0;">Models are ranked according to their average performance on understanding, generation, and unify tasks, from highest to lowest.</p>
+          <div class="table-caption" style="width: 100%; text-align: left; padding-top: 0; margin-top: -50px; border-top: none;">
+            <p style="font-weight: 500; margin: 0 0 10px 0;">Models are ranked according to their average performance on understanding, generation, and unify tasks, from highest to lowest.</p>
             <div class="task-abbreviations" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; margin-bottom: 10px;">
               <div><strong>SIPU</strong>: Single Image Perception & Understanding</div>
               <div><strong>TVG</strong>: Text-to-Video Generation</div>
@@ -726,35 +726,31 @@
 </div>
 
 <style>
-/* 增加整体容器宽度 */
 .container {
-  max-width: 1600px; /* 增加最大宽度，原来是1400px */
+  max-width: 1600px; 
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 95%; /* 确保在小屏幕上也能占用更多空间 */
+  width: 95%; 
 }
 
-/* 增加表格整体尺寸 */
 .js-sort-table {
-  width: 98% !important; /* 增加表格宽度占比，原来是90% */
-  transform: scale(1.0); /* 取消缩放效果，使表格显示原始大小 */
+  width: 98% !important; 
+  transform: scale(1.0); 
   transform-origin: center top;
   margin-bottom: 8px;
 }
 
-/* 增加单元格间距，使内容更清晰 */
 .js-sort-table td, .js-sort-table th {
-  padding: 5px !important; /* 增加单元格padding */
-  font-size: 1.02em; /* 略微增加字体大小 */
+  padding: 5px !important; 
+  font-size: 1.02em; 
 }
 
-/* 调整响应式缩放比例，使其在各种屏幕尺寸下都更宽 */
 @media (max-width: 1600px) {
   .js-sort-table {
     width: 100% !important;
-    transform: scale(0.98); /* 轻微缩放 */
+    transform: scale(0.98); 
     transform-origin: center top;
   }
 }
@@ -762,7 +758,7 @@
 @media (max-width: 1400px) {
   .js-sort-table {
     width: 100% !important;
-    transform: scale(0.95); /* 比原来的0.9更大 */
+    transform: scale(0.95); 
     transform-origin: center top;
   }
 }
@@ -770,7 +766,7 @@
 @media (max-width: 1200px) {
   .js-sort-table {
     width: 100% !important;
-    transform: scale(0.9); /* 比原来的0.85更大 */
+    transform: scale(0.9); 
     transform-origin: center top;
   }
 }
@@ -778,32 +774,28 @@
 @media (max-width: 992px) {
   .js-sort-table {
     width: 100% !important;
-    transform: scale(0.85); /* 比原来的0.8更大 */
+    transform: scale(0.85); 
     transform-origin: center top;
   }
 }
 
-/* 调整表格说明部分的宽度 */
 .table-caption {
-  width: 98% !important; /* 与表格宽度保持一致 */
+  width: 98% !important; 
   margin: 0 auto;
 }
 
-/* 调整任务缩写说明的布局 */
 .task-abbreviations {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 增加列数，更有效利用水平空间 */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 8px;
   margin-bottom: 10px;
 }
 
-/* 确保内容区域也使用最大宽度 */
 .content {
   width: 100%;
   max-width: 100%;
 }
 
-/* 确保列宽度合适 */
 .columns.is-centered {
   width: 100%;
   max-width: 100%;

@@ -278,19 +278,20 @@
 
 <style>
   .leaderboard-container {
-    width: 100%;
-    max-width: 100%;
+    width: 150%;
+    max-width: 150%;
     overflow-x: auto;
   }
   
   .leaderboard-table {
-    width: 100%;
+    width: 150%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
+    font-size: 14px;
   }
   
   .leaderboard-table th, .leaderboard-table td {
-    padding: 6px;
+    padding: 8px;
     text-align: center;
     border: 1px solid #ddd;
   }
@@ -302,7 +303,7 @@
   
   .method-cell {
     text-align: left;
-    width: 180px;
+    width: 220px;
   }
   
   .organization {
@@ -320,428 +321,480 @@
     font-weight: bold;
   }
   
-  .abbreviations-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-    margin: 10px 0;
+  .category-header {
+    background-color: #e6e6e6;
   }
   
-  .legend-section {
-    margin-top: 5px;
-    padding-top: 3px;
+  .caption-container {
+    margin-top: 15px;
     border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  
+  .abbreviations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .legend {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 8px;
+  }
+  
+  .legend p {
+    margin: 5px 0;
   }
 </style>
 
-<div class="leaderboard-container">
-  <table class="leaderboard-table">
-    <thead>
-      <tr>
-        <th rowspan="3" style="width: 30px;">#</th>
-        <th rowspan="1" style="width: 180px;">Method</th>
-        <th rowspan="1">LLM</th>
-        <th rowspan="1">Date</th>
-        <th colspan="1" style="font-style: italic;"><strong>Overall</strong></th>
-        <th colspan="5"><strong>Understanding</strong></th>
-        <th colspan="8"><strong>Generation</strong></th>
-        <th colspan="6"><strong>Unify</strong></th>
-      </tr>
-      <tr>
-        <th colspan="3"><strong>Task Split</strong></th>
-        <th style="font-style: italic;"><strong>Avg</strong></th>
-        <th><strong>SIPU</strong></th>
-        <th><strong>MTITU</strong></th>
-        <th><strong>VPU</strong></th>
-        <th><strong>Avg</strong></th>
-        <th><strong>CVIG</strong></th>
-        <th><strong>FIR</strong></th>
-        <th><strong>TIE</strong></th>
-        <th><strong>TIG</strong></th>
-        <th><strong>TVG</strong></th>
-        <th><strong>VP</strong></th>
-        <th><strong>Avg</strong></th>
-        <th><strong>IEE</strong></th>
-        <th><strong>CSQ</strong></th>
-        <th><strong>AL</strong></th>
-        <th><strong>SD</strong></th>
-        <th><strong>VCoT</strong></th>
-        <th><strong>Avg</strong></th>
-      </tr>
-      <tr>
-        <th colspan="3"><strong>QA pairs</strong></th>
-        <th style="font-style: italic;"><strong>1964</strong></th>
-        <th><strong>1200</strong></th>
-        <th><strong>400</strong></th>
-        <th><strong>364</strong></th>
-        <th><strong>1964</strong></th>
-        <th><strong>600</strong></th>
-        <th><strong>200</strong></th>
-        <th><strong>200</strong></th>
-        <th><strong>200</strong></th>
-        <th><strong>200</strong></th>
-        <th><strong>194</strong></th>
-        <th><strong>1594</strong></th>
-        <th><strong>200</strong></th>
-        <th><strong>100</strong></th>
-        <th><strong>52</strong></th>
-        <th><strong>104</strong></th>
-        <th><strong>90</strong></th>
-        <th><strong>546</strong></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td class="method-cell">
-          <a href="https://deepmind.google/technologies/gemini/flash/">Gemini2.0-flash-exp</a>
-          <p class="organization">Google DeepMind</p>
-        </td>
-        <td>-</td>
-        <td class="highlighted-date">2025-03-12</td>
-        <td class="bold-value">45.6</td>
-        <td>72.6</td>
-        <td>68.3</td>
-        <td>54.9</td>
-        <td class="bold-value">65.2</td>
-        <td>-</td>
-        <td>77.6</td>
-        <td>43.5</td>
-        <td>57.6</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">29.8</td>
-        <td>38.4</td>
-        <td>74.8</td>
-        <td>47.1</td>
-        <td>26.0</td>
-        <td>12.4</td>
-        <td class="bold-value">40.7</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td class="method-cell">
-          <a href="https://github.com/mio-team/mio">MIO-Instruct</a>
-          <p class="organization">Beihang University</p>
-        </td>
-        <td>MIO-7B</td>
-        <td class="highlighted-date">2024-09-26</td>
-        <td class="bold-value">37.2</td>
-        <td>52.0</td>
-        <td>33.5</td>
-        <td>39.0</td>
-        <td class="bold-value">41.5</td>
-        <td>51.2</td>
-        <td>59.3</td>
-        <td>43.7</td>
-        <td>48.2</td>
-        <td>51.9</td>
-        <td>66.4</td>
-        <td class="bold-value">53.5</td>
-        <td>24.2</td>
-        <td>38.5</td>
-        <td>8.7</td>
-        <td>11.5</td>
-        <td>0</td>
-        <td class="bold-value">16.6</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td class="method-cell">
-          <a href="https://github.com/AILab-CVC/SEED">SEED-LLaMA</a>
-          <p class="organization">Tencent AI Lab</p>
-        </td>
-        <td>LLaMA2-Chat-13B</td>
-        <td>2023-12-18</td>
-        <td class="bold-value">28.45</td>
-        <td>49.2</td>
-        <td>33.0</td>
-        <td>36.3</td>
-        <td class="bold-value">39.5</td>
-        <td>-</td>
-        <td>57.0</td>
-        <td>42.3</td>
-        <td>42.0</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">23.5</td>
-        <td>22.00</td>
-        <td>51.5</td>
-        <td>12.5</td>
-        <td>22.0</td>
-        <td>3.6</td>
-        <td class="bold-value">22.3</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td class="method-cell">
-          <a href="https://github.com/GAIR-NLP/anole">Anole</a>
-          <p class="organization">GAIR</p>
-        </td>
-        <td>-</td>
-        <td>2024-07-08</td>
-        <td class="bold-value">18.6</td>
-        <td>17.2</td>
-        <td>14.5</td>
-        <td>9.0</td>
-        <td class="bold-value">13.6</td>
-        <td>-</td>
-        <td>36.6</td>
-        <td>43.4</td>
-        <td>41.5</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">20.0</td>
-        <td>18.6</td>
-        <td>59.7</td>
-        <td>14.4</td>
-        <td>15.0</td>
-        <td>3.9</td>
-        <td class="bold-value">22.3</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td class="method-cell">
-          <a href="https://github.com/mit-han-lab/vila-u">VILA-U</a>
-          <p class="organization">Tsinghua University</p>
-        </td>
-        <td>LLama-7B</td>
-        <td>2024-09-06</td>
-        <td class="bold-value">18.6</td>
-        <td>51.0</td>
-        <td>32.3</td>
-        <td>36.5</td>
-        <td class="bold-value">40.0</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>45.1</td>
-        <td>49.6</td>
-        <td>-</td>
-        <td class="bold-value">15.8</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">-</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td class="method-cell">
-          <a href="https://arxiv.org/abs/2501.17811">Janus-Pro</a>
-          <p class="organization">DeepSeek-AI</p>
-        </td>
-        <td>DeepSeek-LLM-7B-base</td>
-        <td>2025-01-29</td>
-        <td class="bold-value">18.1</td>
-        <td>59.6</td>
-        <td>43.5</td>
-        <td>42.2</td>
-        <td class="bold-value">48.4</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>35.3</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">5.9</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">-</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td class="method-cell">
-          <a href="https://github.com/eric-ai-lab/MiniGPT-5">MiniGPT-5</a>
-          <p class="organization">University of California</p>
-        </td>
-        <td>Vicuna-7B</td>
-        <td>2023-10-03</td>
-        <td class="bold-value">16.4</td>
-        <td>19.3</td>
-        <td>10.9</td>
-        <td>15.9</td>
-        <td class="bold-value">15.4</td>
-        <td>-</td>
-        <td>39.0</td>
-        <td>35.0</td>
-        <td>35.5</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">18.3</td>
-        <td>22.8</td>
-        <td>34.1</td>
-        <td>14.4</td>
-        <td>5.0</td>
-        <td>2.1</td>
-        <td class="bold-value">15.7</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td class="method-cell">
-          <a href="https://arxiv.org/abs/2411.07975">Janus-Flow</a>
-          <p class="organization">DeepSeek-AI</p>
-        </td>
-        <td>DeepSeek-LLM-1.5B-base</td>
-        <td>2024-11-12</td>
-        <td class="bold-value">16.3</td>
-        <td>41.5</td>
-        <td>32.0</td>
-        <td>35.2</td>
-        <td class="bold-value">43.4</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>32.9</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">5.5</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">-</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td class="method-cell">
-          <a href="https://github.com/kohjingyu/gill">GILL</a>
-          <p class="organization">Carnegie Mellon University</p>
-        </td>
-        <td>OPT-6-7B</td>
-        <td>2023-03-26</td>
-        <td class="bold-value">15.1</td>
-        <td>22.2</td>
-        <td>6.0</td>
-        <td>3.6</td>
-        <td class="bold-value">10.6</td>
-        <td>-</td>
-        <td>50.7</td>
-        <td>35.7</td>
-        <td>46.6</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">22.2</td>
-        <td>24.3</td>
-        <td>21.3</td>
-        <td>8.7</td>
-        <td>6.7</td>
-        <td>1.9</td>
-        <td class="bold-value">12.6</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td class="method-cell">
-          <a href="https://github.com/Gen-Verse/HermesFlow">HermersFlow</a>
-          <p class="organization">Peking University</p>
-        </td>
-        <td>Phi-1.5</td>
-        <td class="highlighted-date">2025-2-17</td>
-        <td class="bold-value">14.0</td>
-        <td>41.5</td>
-        <td>33.0</td>
-        <td>28.3</td>
-        <td class="bold-value">34.3</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>46.5</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">7.8</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">-</td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td class="method-cell">
-          <a href="https://github.com/baaivision/Emu3">Emu3</a>
-          <p class="organization">BAAI</p>
-        </td>
-        <td>LLama-8B</td>
-        <td>2024-09-27</td>
-        <td class="bold-value">13.8</td>
-        <td>45.8</td>
-        <td>30.5</td>
-        <td>23.3</td>
-        <td class="bold-value">33.2</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>49.1</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">8.2</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">-</td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td class="method-cell">
-          <a href="https://github.com/showlab/Show-o">Show-o</a>
-          <p class="organization">Show Lab</p>
-        </td>
-        <td>Phi-1.5</td>
-        <td>2024-8-22</td>
-        <td class="bold-value">12.7</td>
-        <td>32.5</td>
-        <td>34.6</td>
-        <td>25.7</td>
-        <td class="bold-value">31.0</td>
-        <td>-</td>
-        <td>-</td>
-        <td>43.5</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">7.3</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td class="bold-value">-</td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="columns is-centered" style="display: flex; justify-content: center; width: 100%;">
+  <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+    <div class="content has-text-centered">
+      <h2 class="title is-3" style="margin-bottom: 10px;">Leaderboard</h2>
+       
+      <div class="content">
+        <!-- Single container for both table and caption -->
+        <div style="width: 85%; margin: 0 auto;">
+          <!-- Table section - reduced margins and padding -->
+          <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+            <table class="js-sort-table" id="results" style="width: 100%; transform: scale(0.95); transform-origin: center top; margin-bottom: 8px;">
+              <thead>
+                <tr>
+                  <th rowspan="3" class="no-sort" style="vertical-align: middle; width: 30px; padding: 4px;" data-js-sort-colNum="none"><strong>#</strong></th>
+                  <th rowspan="1" class="no-sort" style="vertical-align: middle; width: 420px; padding: 4px;" data-js-sort-colNum="none"><strong>Method</strong></th>
+                  <th rowspan="1" class="no-sort" style="vertical-align: middle; width: 30px; padding: 4px;"><strong>LLM</strong></th>
+                  <th rowspan="1" class="no-sort" style="vertical-align: middle; width: 100px; padding: 4px;"><strong>Date</strong></th>
+                  <th colspan="1" style="vertical-align: middle; width: 30; font-style: italic; padding: 4px;" data-js-sort-colNum="4"><strong>Overall</strong></th>
+                  <th colspan="5" style="vertical-align: middle; width: 250px; padding: 4px;" data-js-sort-colNum="9"><strong>Understanding</strong></th>
+                  <th colspan="8" style="vertical-align: middle; width: 380px; padding: 4px;" data-js-sort-colNum="17"><strong>Generation</strong></th>
+                  <th colspan="6" style="vertical-align: middle; width: 280px; padding: 4px;" data-js-sort-colNum="25"><strong>Unify</strong></th>
+                </tr>
+                <tr>
+                  <th colspan="3" class="no-sort" style="padding: 4px;"><strong>Task Split</strong></th>
+                  <th data-js-sort-colNum="4" style="font-style: italic; padding: 4px;"><strong>Avg</strong></th>
+                  <th data-js-sort-colNum="5" style="padding: 4px;"><strong>SIPU</strong></th>
+                  <th data-js-sort-colNum="6" style="padding: 4px;"><strong>MTITU</strong></th>
+                  <th data-js-sort-colNum="7" style="padding: 4px;"><strong>VPU</strong></th>
+                  <th data-js-sort-colNum="8" style="padding: 4px;"><strong>Avg</strong></th>
+                  <th data-js-sort-colNum="9" style="padding: 4px;"><strong>CVIG</strong></th>
+                  <th data-js-sort-colNum="10" style="padding: 4px;"><strong>FIR</strong></th>
+                  <th data-js-sort-colNum="11" style="padding: 4px;"><strong>TIE</strong></th>
+                  <th data-js-sort-colNum="12" style="padding: 4px;"><strong>TIG</strong></th>
+                  <th data-js-sort-colNum="13" style="padding: 4px;"><strong>TVG</strong></th>
+                  <th data-js-sort-colNum="14" style="padding: 4px;"><strong>VP</strong></th>
+                  <th data-js-sort-colNum="15" style="padding: 4px;"><strong>Avg</strong></th>
+                  <th data-js-sort-colNum="16" style="padding: 4px;"><strong>IEE</strong></th>
+                  <th data-js-sort-colNum="17" style="padding: 4px;"><strong>CSQ</strong></th>
+                  <th data-js-sort-colNum="18" style="padding: 4px;"><strong>AL</strong></th>
+                  <th data-js-sort-colNum="19" style="padding: 4px;"><strong>SD</strong></th>
+                  <th data-js-sort-colNum="20" style="padding: 4px;"><strong>VCoT</strong></th>
+                  <th data-js-sort-colNum="21" style="padding: 4px;"><strong>Avg</strong></th>
+                </tr>
+                <tr>
+                  <th colspan="3" class="no-sort" style="padding: 4px;"><strong>QA pairs</strong></th>
+                  <th data-js-sort-colNum="4" style="font-style: italic; padding: 4px;"><strong>1964</strong></th>
+                  <th data-js-sort-colNum="5" style="padding: 4px;"><strong>1200</strong></th>
+                  <th data-js-sort-colNum="6" style="padding: 4px;"><strong>400</strong></th>
+                  <th data-js-sort-colNum="7" style="padding: 4px;"><strong>364</strong></th>
+                  <th data-js-sort-colNum="8" style="padding: 4px;"><strong>1964</strong></th>
+                  <th data-js-sort-colNum="9" style="padding: 4px;"><strong>600</strong></th>
+                  <th data-js-sort-colNum="10" style="padding: 4px;"><strong>200</strong></th>
+                  <th data-js-sort-colNum="11" style="padding: 4px;"><strong>200</strong></th>
+                  <th data-js-sort-colNum="12" style="padding: 4px;"><strong>200</strong></th>
+                  <th data-js-sort-colNum="13" style="padding: 4px;"><strong>200</strong></th>
+                  <th data-js-sort-colNum="14" style="padding: 4px;"><strong>194</strong></th>
+                  <th data-js-sort-colNum="15" style="padding: 4px;"><strong>1594</strong></th>
+                  <th data-js-sort-colNum="16" style="padding: 4px;"><strong>200</strong></th>
+                  <th data-js-sort-colNum="17" style="padding: 4px;"><strong>100</strong></th>
+                  <th data-js-sort-colNum="18" style="padding: 4px;"><strong>52</strong></th>
+                  <th data-js-sort-colNum="19" style="padding: 4px;"><strong>104</strong></th>
+                  <th data-js-sort-colNum="20" style="padding: 4px;"><strong>90</strong></th>
+                  <th data-js-sort-colNum="21" style="padding: 4px;"><strong>546</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class=""><a href="https://deepmind.google/technologies/gemini/flash/" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                    Gemini2.0-flash-exp
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Google DeepMind</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; color: #6fbf73; padding: 3px;"><b>2025-03-12</b></td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>45.6</strong></td>  
+                  <td style="vertical-align: middle; padding: 3px;">72.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">68.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">54.9</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>65.2</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">77.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">43.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">57.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>29.8</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">38.4</td>
+                  <td style="vertical-align: middle; padding: 3px;">74.8</td>
+                  <td style="vertical-align: middle; padding: 3px;">47.1</td>
+                  <td style="vertical-align: middle; padding: 3px;">26.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">12.4</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>40.7</strong></td>
+                </tr>
+
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class=""><a href="https://github.com/mio-team/mio" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                    MIO-Instruct
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Beihang University</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">MIO-7B</td>
+                  <td style="vertical-align: middle; color: #6fbf73; padding: 3px;"><b>2024-09-26</b></td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>37.2</strong></td>  
+                  <td style="vertical-align: middle; padding: 3px;">52.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">33.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">39.0</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>41.5</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">51.2</td>
+                  <td style="vertical-align: middle; padding: 3px;">59.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">43.7</td>
+                  <td style="vertical-align: middle; padding: 3px;">48.2</td>
+                  <td style="vertical-align: middle; padding: 3px;">51.9</td>
+                  <td style="vertical-align: middle; padding: 3px;">66.4</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>53.5</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">24.2</td>
+                  <td style="vertical-align: middle; padding: 3px;">38.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">8.7</td>
+                  <td style="vertical-align: middle; padding: 3px;">11.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">0</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>16.6</strong></td>
+                </tr>
+                
+                <!-- Remaining table rows with similar padding adjustments -->
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/AILab-CVC/SEED" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      SEED-LLaMA
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Tencent AI Lab</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">LLaMA2-Chat-13B</td>
+                  <td style="vertical-align: middle; padding: 3px;">2023-12-18</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>28.45</strong></td>                                
+                  <td style="vertical-align: middle; padding: 3px;">49.2</td>
+                  <td style="vertical-align: middle; padding: 3px;">33.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">36.3</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>39.5</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">57.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">42.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">42.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>23.5</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">22.00</td>
+                  <td style="vertical-align: middle; padding: 3px;">51.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">12.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">22.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">3.6</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>22.3</strong></td>
+                </tr>
   
-  <div style="margin-top: 15px; border-top: 1px solid #e0e0e0; padding-top: 10px;">
-    <p style="font-weight: 500; margin-bottom: 10px;">Models are ranked according to their average performance on understanding, generation, and unify tasks, from highest to lowest.</p>
-    
-    <div class="abbreviations-section">
-      <div><strong>SIPU</strong>: Single Image Perception & Understanding</div>
-      <div><strong>TVG</strong>: Text-to-Video Generation</div>
-      <div><strong>MTITU</strong>: Multiple & Interleaved Image-Text Understanding</div>
-      <div><strong>VP</strong>: Video Prediction</div>
-      <div><strong>VPU</strong>: Video Perception & Understanding</div>
-      <div><strong>IEE</strong>: Image Editing and Explaining</div>
-      <div><strong>CVIG</strong>: Conditional Image-to-Video Generation</div>
-      <div><strong>CSQ</strong>: Common Sense Question Answering</div>
-      <div><strong>FIR</strong>: Fine-grained Image Reconstruction</div>
-      <div><strong>AL</strong>: Auxiliary Lines</div>
-      <div><strong>TIE</strong>: Text-Guided Image Editing</div>
-      <div><strong>SD</strong>: SpotDiff</div>
-      <div><strong>TIG</strong>: Text-to-Image Generation</div>
-      <div><strong>VCoT</strong>: Visual CoT</div>
-    </div>
-    
-    <div class="legend-section">
-      <p><strong>"Avg"</strong> indicates the average accuracy across subtasks in each domain.</p>
-      <p><strong>"-"</strong> indicates that the model is unable to finish the corresponding task.</p>
-      <p><strong style="color: #6fbf73;">"Green date"</strong> indicates the newly added/updated models.</p>
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/GAIR-NLP/anole" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      Anole
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">GAIR</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">2024-07-08</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>18.6</strong></td>                                
+                  <td style="vertical-align: middle; padding: 3px;">17.2</td>
+                  <td style="vertical-align: middle; padding: 3px;">14.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">9.0</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>13.6</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">36.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">43.4</td>
+                  <td style="vertical-align: middle; padding: 3px;">41.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>20.0</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">18.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">59.7</td>
+                  <td style="vertical-align: middle; padding: 3px;">14.4</td>
+                  <td style="vertical-align: middle; padding: 3px;">15.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">3.9</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>22.3</strong></td>
+                </tr>
+      
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/mit-han-lab/vila-u" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      VILA-U
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Tsinghua University</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">LLama-7B</td>
+                  <td style="vertical-align: middle; padding: 3px;">2024-09-06</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>18.6</strong></td>                              
+                  <td style="vertical-align: middle; padding: 3px;">51.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">32.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">36.5</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>40.0</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">45.1</td>
+                  <td style="vertical-align: middle; padding: 3px;">49.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>15.8</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>-</strong></td>
+                </tr>
+      
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://arxiv.org/abs/2501.17811" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      Janus-Pro
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">DeepSeek-AI</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">DeepSeek-LLM-7B-base</td>
+                  <td style="vertical-align: middle; padding: 3px;">2025-01-29</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>18.1</strong></td>                              
+                  <td style="vertical-align: middle; padding: 3px;">59.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">43.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">42.2</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>48.4</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">35.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>5.9</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>-</strong></td>
+                </tr>
+  
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/eric-ai-lab/MiniGPT-5" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      MiniGPT-5
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">University of California</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">Vicuna-7B</td>
+                  <td style="vertical-align: middle; padding: 3px;">2023-10-03</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>16.4</strong></td>                              
+                  <td style="vertical-align: middle; padding: 3px;">19.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">10.9</td>
+                  <td style="vertical-align: middle; padding: 3px;">15.9</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>15.4</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">39.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">35.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">35.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>18.3</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">22.8</td>
+                  <td style="vertical-align: middle; padding: 3px;">34.1</td>
+                  <td style="vertical-align: middle; padding: 3px;">14.4</td>
+                  <td style="vertical-align: middle; padding: 3px;">5.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">2.1</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>15.7</strong></td>
+                </tr> 
+  
+  
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://arxiv.org/abs/2411.07975" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      Janus-Flow
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">DeepSeek-AI</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">DeepSeek-LLM-1.5B-base</td>
+                  <td style="vertical-align: middle; padding: 3px;">2024-11-12</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>16.3</strong></td>                                
+                  <td style="vertical-align: middle; padding: 3px;">41.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">32.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">35.2</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>43.4</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">32.9</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>5.5</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>-</strong></td>
+                </tr>
+  
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/kohjingyu/gill" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      GILL
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Carnegie Mellon University</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">OPT-6-7B</td>
+                  <td style="vertical-align: middle; padding: 3px;">2023-03-26</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>15.1</strong></td>                              
+                  <td style="vertical-align: middle; padding: 3px;">22.2</td>
+                  <td style="vertical-align: middle; padding: 3px;">6.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">3.6</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>10.6</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">50.7</td>
+                  <td style="vertical-align: middle; padding: 3px;">35.7</td>
+                  <td style="vertical-align: middle; padding: 3px;">46.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>22.2</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">24.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">21.3</td>
+                  <td style="vertical-align: middle; padding: 3px;">8.7</td>
+                  <td style="vertical-align: middle; padding: 3px;">6.7</td>
+                  <td style="vertical-align: middle; padding: 3px;">1.9</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>12.6</strong></td>
+                </tr> 
+      
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/Gen-Verse/HermesFlow" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      HermersFlow
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Peking University</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">Phi-1.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">2025-2-17</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>14.0</strong></td>                              
+                  <td style="vertical-align: middle; padding: 3px;">41.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">33.0</td>
+                  <td style="vertical-align: middle; padding: 3px;">28.3</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>34.3</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">46.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>7.8</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>-</strong></td>
+                </tr>
+      
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/baaivision/Emu3" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      Emu3
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">BAAI</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">LLama-8B</td>
+                  <td style="vertical-align: middle; padding: 3px;">2024-09-27</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>13.8</strong></td>                              
+                  <td style="vertical-align: middle; padding: 3px;">45.8</td>
+                  <td style="vertical-align: middle; padding: 3px;">30.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">23.3</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>33.2</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">49.1</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>8.2</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>-</strong></td>
+                </tr>
+      
+                <tr>
+                  <td style="vertical-align: middle; padding: 3px;"></td>
+                  <td style="text-align: left; padding: 2px 6px;"><b class="">
+                    <a href="https://github.com/showlab/Show-o" class="ext-link" style="font-size: 16px; margin-left: 2px;">
+                      Show-o
+                    <p style="font-size: 12px; margin: 0 0 0 2px; color: #858383;">Show Lab</p>
+                  </a></b></td>
+                  <td style="vertical-align: middle; padding: 3px;">Phi-1.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">2024-8-22</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>12.7</strong></td>                              
+                  <td style="vertical-align: middle; padding: 3px;">32.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">34.6</td>
+                  <td style="vertical-align: middle; padding: 3px;">25.7</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>31.0</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">43.5</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>7.3</strong></td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;">-</td>
+                  <td style="vertical-align: middle; padding: 3px;"><strong>-</strong></td>
+                </tr>
+              </tbody>                                                   
+            </table>
+          </div>
+          
+          <!-- Caption section with minimal spacing -->
+          <div class="table-caption" style="width: 100%; text-align: left; border-top: 1px solid #e0e0e0; padding-top: 5px;">
+            <p style="font-weight: 500; margin: 5px 0 10px 0;">Models are ranked according to their average performance on understanding, generation, and unify tasks, from highest to lowest.</p>
+            <div class="task-abbreviations" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; margin-bottom: 10px;">
+              <div><strong>SIPU</strong>: Single Image Perception & Understanding</div>
+              <div><strong>TVG</strong>: Text-to-Video Generation</div>
+              <div><strong>MTITU</strong>: Multiple & Interleaved Image-Text Understanding</div>
+              <div><strong>VP</strong>: Video Prediction</div>
+              <div><strong>VPU</strong>: Video Perception & Understanding</div>
+              <div><strong>IEE</strong>: Image Editing and Explaining</div>
+              <div><strong>CVIG</strong>: Conditional Image-to-Video Generation</div>
+              <div><strong>CSQ</strong>: Common Sense Question Answering</div>
+              <div><strong>FIR</strong>: Fine-grained Image Reconstruction</div>
+              <div><strong>AL</strong>: Auxiliary Lines</div>
+              <div><strong>TIE</strong>: Text-Guided Image Editing</div>
+              <div><strong>SD</strong>: SpotDiff</div>
+              <div><strong>TIG</strong>: Text-to-Image Generation</div>
+              <div><strong>VCoT</strong>: Visual CoT</div>
+            </div>
+            
+            <div class="legend" style="margin-bottom: 5px; padding-top: 3px; border-top: 1px solid #e0e0e0;">
+              <p style="margin: 3px 0;"><strong>"Avg"</strong> indicates the average accuracy across subtasks in each domain.</p>
+              <p style="margin: 3px 0;"><strong>"-"</strong> indicates that the model is unable to finish the corresponding task.</p>
+              <p style="margin: 3px 0;"><strong style="color: #6fbf73;">"Green date"</strong> indicates the newly added/updated models.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

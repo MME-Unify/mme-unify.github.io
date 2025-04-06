@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <section class="section">
+    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> MME-Unify </title>
-  <link rel="icon" href="./static/images/logo.png" width="120%">
-
+  <title> MME-Unify: Welcome </title>
+  <!-- <link rel="icon" href="./static/images/logo.png"> -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -33,7 +34,6 @@
   <script src="./data/results/model_scores.js" defer></script>
 
   <script src="./visualizer/data/data_public.js" defer></script>
-
   <style>
     .no-sort {
         cursor: default;
@@ -62,14 +62,14 @@
             More Research
           </a>
           <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/yfzhang114/SliME">
+              <b>SliME</b> 
+            </a>
             <a class="navbar-item" href="https://mm-rlhf.github.io">
               <b>MM-RLHF</b> 
             </a>
             <a class="navbar-item" href="https://github.com/VITA-MLLM/VITA">
               <b>VITA</b> 
-            </a>
-            <a class="navbar-item" href="https://github.com/yfzhang114/SliME">
-              <b>SliME</b> 
             </a>
             <a class="navbar-item" href="https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models">
               <b>MME</b> 
@@ -90,6 +90,7 @@
     </div>
   </nav>
 
+  
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -111,10 +112,17 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title is-bold">
-            <img src="static/images/logo.png" style="width:1.8em;vertical-align: middle" alt="Logo"/>
-            <span class="MME-Unify" style="vertical-align: middle;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">MME-Unify</span>
-            </h1>
+          <div class="container" style="margin-bottom: 2vh;">
+            <!-- Introduction -->
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <div class="content has-text-centered">
+                  <img src="static/images/logo.png" alt="Research abstract on Unified MLLMs evaluation framework" width="40%" height="120%">
+                </div>
+              </div>
+            </div>
+            <!--/ Introduction -->
+          </div>
           <h2 class="subtitle is-3 publication-subtitle ", style="width: 100%;margin-bottom: 20px;">
             <strong> A Comprehensive Benchmark for Unified Multimodal Models</strong>
           </h2>
@@ -191,7 +199,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/MME-Benchmarks/MME-Unify"
+                <a href="https://github.com/aba122/MME-Unify"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -409,7 +417,7 @@
                   </a></b></td>
                   <td style="vertical-align: middle; padding: 3px;">LLaMA2-Chat-13B</td>
                   <td style="vertical-align: middle; padding: 3px;">2023-12-18</td>
-                  <td style="vertical-align: middle; padding: 3px;"><strong>28.45</strong></td>                                
+                  <td style="vertical-align: middle; padding: 3px;"><strong>28.5</strong></td>                                
                   <td style="vertical-align: middle; padding: 3px;">49.2</td>
                   <td style="vertical-align: middle; padding: 3px;">33.0</td>
                   <td style="vertical-align: middle; padding: 3px;">36.3</td>
